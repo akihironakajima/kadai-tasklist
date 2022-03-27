@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def current_user_confirmation
+    unless current_user == @task.user
+      redirect_to tasks_path
+    end
+  end
+
 end
